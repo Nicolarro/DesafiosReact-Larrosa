@@ -1,0 +1,43 @@
+body {
+  background-color: bisque;
+}
+
+/* OPERADORES */
+/* DEL HEADER */
+.header {
+  background-color: #CCD5AE;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0rem;
+}
+
+.header .header__logo {
+  border-style: none;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  margin-left: 1rem;
+  background-color: #CCD5AE;
+}
+
+.header--color {
+  background-color: #CCD5AE;
+}
+
+.estiloCarrito {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-right: 2rem;
+  font-size: xx-large;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+/*# sourceMappingURL=app.css.map */
