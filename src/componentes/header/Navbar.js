@@ -1,15 +1,18 @@
  import React from "react";
  import 'bootstrap/dist/css/bootstrap.min.css'
-/*  import Button from 'react-bootstrap/Button'; */
+
  
- const Navbar = (props) =>{
+ const Navbar = () =>{
 
 return(
-    <nav className="navbar navbar-expand-lg navbar-light header--color">
+
+  <header id="main-header" className="header">
+    <div>
     <a className="navbar-brand" href="index.html">
       <img src="https://i.ibb.co/1RDMJgg/Logo-Index.jpg" width="70" height="70" alt="" className="header--color header__logo img-fluid"/>
     </a>
-
+    </div>
+      <nav className="navbar navbar-expand-lg navbar-light header--color">
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -33,16 +36,20 @@ return(
         <li className="nav-item">
           <a className="nav-link header--color" href= "a" >CONTACTO</a>
         </li>
-    </ul>
+        <li className="nav-item">
+          <a className="nav-link header--color" href= "a" >CARRITO</a>
+        </li>
     <span className="material-icons estiloCarrito">
     shopping_cart
     </span>
+    </ul>
       <form className="d-flex">
           
       </form>
 
     </div>
   </nav>
+  </header>
 )
 }
 
