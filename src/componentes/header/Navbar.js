@@ -1,4 +1,5 @@
  import React from "react";
+ import CardWidget from "./CardWidget.js"
  import 'bootstrap/dist/css/bootstrap.min.css'
 
  
@@ -16,8 +17,8 @@ return(
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse header--color" id="navbarScroll">
-      <ul className="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll header--color">
+  <div className="collapse navbar-collapse header--color" id="navbarScroll">
+    <ul className="navbar-nav mr-auto my-2 my-lg-0 navbar-nav-scroll header--color">
         <li className="nav-item">
           <a className="nav-link header--color" href="./" >HOME</a>
         </li>
@@ -39,15 +40,13 @@ return(
         <li className="nav-item">
           <a className="nav-link header--color" href= "a" >CARRITO</a>
         </li>
-    <span className="material-icons estiloCarrito">
-    shopping_cart
-    </span>
+        <CardWidget/>
     </ul>
       <form className="d-flex">
           
       </form>
 
-    </div>
+  </div>
   </nav>
   </header>
 )

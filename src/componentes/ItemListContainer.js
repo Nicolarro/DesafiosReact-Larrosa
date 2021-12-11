@@ -1,11 +1,12 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-const ItemListContainer = () => {
+const ItemListContainer = (props) => {
     return (
-        <div>
-            {}
-        </div>
+        <>
+            <br/>
+            <p>{props.greeting}</p>
+        </>
     )
 }
 

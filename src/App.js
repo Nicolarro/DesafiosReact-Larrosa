@@ -54,6 +54,7 @@ function App (stock) {
             <button onClick={sumar}> SUMAR</button>
             <button onClick={restar}> RESTAR</button>
             <button onClick={resetear}> RESETEAR</button>
+            <br/>
             <ItemListContainer greeting= "Bienvenido a Reina Cocina"/>
         </>
     )
