@@ -10,19 +10,25 @@ import { useState } from 'react'
 
 const ItemCount = ({stock, initial, onAdd}) =>{
 
-    let [contador, setContador] = useState(0) /* EL CONTADOR SUMA COMO PRIMER NUMERO 0?? */
+    let [contador, setContador] = useState(1) /* EL CONTADOR SUMA COMO PRIMER NUMERO 0?? */
 
-/*     let [lista, setLista] = useState() */
+/*     let [lista, setLista] = useState([]) // AGREGAR DESPUES
+
+    let [estado,setEstado] = useState(false) */ //AGREGAR DESPUES
 
     
         const sumar = () =>{
-            if (contador > 5){
+            if (contador > stock){
                 toast("No hay mas stock")
             }
             else
             {
                 setContador(contador +1 )
                 console.log(contador)
+
+/*                 setEstado(!estado) */ //AGREGAR DESPUES
+
+  /*               setLista(lista.map) */// AGREGAR DESPUES
             }
         }
     
@@ -37,7 +43,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
         
         const resetear = () => {
             setContador(0)
-  /*           setLista() */
+/*             setLista() */ //AGREGAR DESPUES
         }
 
     return (

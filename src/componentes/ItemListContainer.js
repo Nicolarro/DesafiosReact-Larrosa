@@ -13,7 +13,7 @@ const ItemListContainer = (props) => {
         }
         else
         {
-        toast("Productos agregados al carrito")
+        toast(  {contador} + " Productos agregados al carrito")
         }
         }
         
