@@ -2,42 +2,15 @@
 import React from "react";
 import Navbar from "./componentes/header/Navbar.js";
 import ItemListContainer from "./componentes/ItemListContainer.js";
-import { useState } from 'react'
+/* import { useState } from 'react' */
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-/* importar de un file css "import ./header.css" */
 
-function App (stock) {
+function App () {
 
   
- /*    const [estado,setEstado] = useState(0)
-    console.log(estado) */
-    
-    let [contador, setContador] = useState(0)
-
-/*     let [lista, setLista] = useState([]) */
-
-    const sumar = () =>{
-        if (contador > stock){
-            alert("no hay productos disponibles") /* esto cambiarlo despues */
-        }
-        else
-        {
-            setContador(contador+1)
-        }
-    }
-
-    const restar = () => {
-        setContador(contador - 1)
-    }
-
-    const resetear = () => {
-        setContador(0)
-     /*    setLista() */
-    }
-
     const links= [
         {href:"#", name:"home",id:1}, 
         {href:"#", name:"Productos",id:2}, 
@@ -47,14 +20,9 @@ function App (stock) {
 
     return (
         <>
-            <Navbar links = {links} stock = {0}/>
+            <Navbar links = {links} stock = {0} initial = {10}/>
             <br/>
             <main>ECOMMERCE REINA COCINA</main>
-            <p>Contador Actual:{contador}</p>
-            <button onClick={sumar}> SUMAR</button>
-            <button onClick={restar}> RESTAR</button>
-            <button onClick={resetear}> RESETEAR</button>
-            <br/>
             <ItemListContainer greeting= "Bienvenido a Reina Cocina"/>
         </>
     )
