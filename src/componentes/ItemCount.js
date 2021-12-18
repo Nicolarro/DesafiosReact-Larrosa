@@ -1,7 +1,7 @@
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react'
 
 /*    const [estado,setEstado] = useState(0)
@@ -10,7 +10,7 @@ import { useState } from 'react'
 
 const ItemCount = ({stock, initial, onAdd}) =>{
 
-    let [contador, setContador] = useState(1) /* EL CONTADOR SUMA COMO PRIMER NUMERO 0?? */
+    let [contador, setContador] = useState(initial) 
 
 /*     let [lista, setLista] = useState([]) // AGREGAR DESPUES
 
@@ -42,8 +42,14 @@ const ItemCount = ({stock, initial, onAdd}) =>{
         }
         
         const resetear = () => {
-            setContador(0)
+            setContador(1)
 /*             setLista() */ //AGREGAR DESPUES
+        }
+
+        const agregarProducto = () => {
+            console.log(contador)
+            onAdd(contador,stock)
+            setContador(initial)
         }
 
     return (
@@ -54,7 +60,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
             <button onClick={restar}> RESTAR</button>
             <ToastContainer />
             <button onClick={resetear}> RESETEAR</button>
-            <button onClick={onAdd}> AGREGAR AL CARRITO</button>
+            <button onClick={agregarProducto}> AGREGAR AL CARRITO</button>
             <br/>   
         </>
     )

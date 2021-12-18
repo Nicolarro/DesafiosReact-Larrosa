@@ -1,29 +1,50 @@
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import ItemCount from "./ItemCount.js"
+import ItemList from "./ItemList.js"
+/* import { useParams } from "react-router-dom"; */
+import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+
+
 
 
 const ItemListContainer = (props) => {
 
     const onAdd = (contador,stock) => {
-        if (contador > stock) {
+        if (stock === 0 || contador > stock) {
         toast("No hay stock suficiente")
         }
         else
         {
-        toast(  {contador} + " Productos agregados al carrito")
+        toast( {contador} + " Productos agregados al carrito")
         }
         }
+
+        const listadoProductos = () => {   
+
+        return new Promise ((resolve,reject) =>{
+
+            setTimeout(() => {
+
+                        resolve([
+                            {id:1, title: "espresso" ,destacados: true, price: 150, pictureUrl: "" },
+                            {id:2, title: "latte" ,   destacados: false, price: 150, pictureUrl: "" },
+                            {id:3, title: "machiatto" ,destacados: true, price: 150, pictureUrl: "" },
+                            {id:4, title: "tradicional" ,destacados: false, price: 150, pictureUrl: ""},
+                            {id:5, title: "capuccino" ,destacados: true, price: 150, pictureUrl: ""}
+                        ]),
+                
+        2000}
+                     )
+                            })} 
         
     return (
         <>
-            <br/>
-{/*             <h1>{props.nombre}</h1> */}
-            <p>{props.greeting}</p>
-            <div><ItemCount stock= {5} initial ={1} onAdd = {onAdd}/></div>
-            <ToastContainer/>
+            <h2> {props.greeting} </h2> 
+            <ItemCount stock= {5} initial ={1} onAdd = {onAdd}/>
+            <ToastContainer/>  
+            <ItemList listado = {listadoProductos}/>
         </>
     )
 }
