@@ -10,17 +10,14 @@ const ItemList = ({props}) =>{
 return(
 
         <ul>
-                {props.listado.map((producto)=>(
+                {props.listadoProductos.map((producto)=>(
 
-        <Item key={producto.id} //key va siempre en el padre
-                       producto= {producto.nombre}
-                        precio= {producto.precio}
-                    
-        />
+        <Item key={producto.id} precio= {producto.precio} /> 
+       
                 ))}
-        </ul>
+        </ul>   
 
 )
-
 }
-export default ItemList
+
+export default ItemList;
