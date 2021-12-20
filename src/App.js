@@ -25,10 +25,10 @@ function App () {
 {/*  <BrowserRouter> */}
             <Navbar links = {links} stock = {0} initial = {10}/>
 {/*           <Routes>  */}
-{/*             <Route path= "/home" element=""/> 
-                <Route path= "/productos" element=""/> 
-                 <Route path= "/carrito" element=""/> 
-                 <Route path= "/categoria/:id" element=""/>  */}
+{/*             <Route path= "/home" element={<ItemListContainer greeting={"Bienvenido!"} />}/> 
+                <Route path= "/productos" element={<ItemDetailContainer />}/> 
+                 <Route path= "/carrito" element={<Carrito />}/> 
+                 <Route path= "/categoria/:id" element={<ItemListContainer greeting={"Bienvenido!"} />  */}
 
        <main>ECOMMERCE CAFE</main> 
 {/*          </Routes>  */}

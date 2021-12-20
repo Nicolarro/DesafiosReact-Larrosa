@@ -1,0 +1,22 @@
+/* import React from "react";
+import ItemCount from "./ItemCount.js"
+import ItemList from "./ItemList.js"
+import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+
+const ItemDetail = () =>{
+
+    return(
+        null
+    )
+
+
+
+}
+
+
+
+export default ItemDetail; */
