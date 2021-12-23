@@ -1,23 +1,29 @@
-/*import { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useState,useEffect } from "react";
+/* import { useParams } from "react-router-dom"; */
  import React from "react";
-import ItemCount from "./ItemCount.js"
-import ItemList from "./ItemList.js"
+ import ItemDetail from "react"
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 
-const ItemDetailContainer = () =>{
+const ItemDetailContainer = (prop) =>{
+
+    const [lista,setLista] = useState();
+
+    useEffect(()=>{
+        setTimeout(() => {
+            setLista(lista)
+        },2000);
+
+    }, );
+
 
     return(
-        null
+        <ItemDetail/>
     )
-
-
 
 }
 
 
-
-export default ItemDetailContainer; */
+export default ItemDetailContainer;

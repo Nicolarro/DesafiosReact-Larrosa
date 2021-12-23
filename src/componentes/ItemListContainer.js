@@ -3,16 +3,22 @@ import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import ItemCount from "./ItemCount.js"
 import ItemList from "./ItemList.js"
-import data from "./data.js"
 /* import { useParams } from "react-router-dom"; */
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-const listadoProductos = data
-
 
 const ItemListContainer = (props) => {
+
+
+    const listadoProductos = [
+        {id:1, title: "espresso" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "" },
+        {id:2, title: "latte" ,   description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "" },
+        {id:3, title: "machiatto" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "" },
+        {id:4, title: "tradicional" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: ""},
+        {id:5, title: "capuccino" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: ""}
+    ]
 
     const onAdd = (contador,stock) => {
         if (stock === 0 || contador > stock) {
@@ -25,37 +31,28 @@ const ItemListContainer = (props) => {
         }
 
 
-
-
-        const [lista,setLista] = useState(listadoProductos)
+        const [lista,setLista] = useState();
 
        useEffect(()=>{
             setTimeout(() => {
-                setLista(lista)
-            },2000);
-
-        }, [lista]);
+                
+                const promise = new Promise ((resolve,reject) =>{
+                    setTimeout(() => {
+                        resolve(listadoProductos);
+                },2000);
+                });
+                promise
+                .then((productos) => { setLista(productos)
+                })
+                .catch((error)=>{
+                    console.log(error)
+                });
+        },2000);
+        },);
 
         console.log(lista)
 
-/*         const listadoProductos = () => {   
 
-        return new Promise ((resolve,reject) =>{
-
-            setTimeout(() => {
-
-                        resolve ([
-                            {id:1, title: "espresso" ,destacados: true, price: 150, pictureUrl: "" },
-                            {id:2, title: "latte" ,   destacados: false, price: 150, pictureUrl: "" },
-                            {id:3, title: "machiatto" ,destacados: true, price: 150, pictureUrl: "" },
-                            {id:4, title: "tradicional" ,destacados: false, price: 150, pictureUrl: ""},
-                            {id:5, title: "capuccino" ,destacados: true, price: 150, pictureUrl: ""}
-                        ]);
-
-                    },2000)
-                     
-                            })} 
-         */
     return (
         <>
             <h2> {props.greeting} </h2> 
@@ -67,3 +64,4 @@ const ItemListContainer = (props) => {
 }
 
 export default ItemListContainer;
+

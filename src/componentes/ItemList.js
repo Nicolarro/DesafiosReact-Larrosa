@@ -6,14 +6,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 
-const ItemList = ({props}) =>{
+const ItemList = ({listado}) =>{
 
 return(
 
         <ul>
-                {props.lista.map((producto)=>(
+                {listado.map((producto)=>(
 
-        <Item key={producto.id} precio= {producto.precio} /> 
+        <Item key={producto.id} precio= {producto.price} /> 
        
                 ))}
         </ul>   

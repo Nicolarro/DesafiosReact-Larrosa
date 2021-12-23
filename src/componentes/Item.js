@@ -6,9 +6,9 @@ import { useEffect } from 'react'; */
 
 
  
-    const Item = (props) => {
+    const Item = ({listado}) => {
 
-   
+
 /*         const variable = () => {
 
             const [listado, setListado] = useState([])
@@ -25,7 +25,7 @@ import { useEffect } from 'react'; */
         return (
                 <>
                 <ul>
-                    <h3>{props.name}</h3>
+                    <h3>{listado.name}</h3>
                 </ul>
                 </>
 
