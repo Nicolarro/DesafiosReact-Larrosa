@@ -31,7 +31,7 @@ const ItemListContainer = (props) => {
         }
 
 
-        const [lista,setLista] = useState();
+        const [lista,setLista] = useState([]);
 
        useEffect(()=>{
             setTimeout(() => {
@@ -58,7 +58,7 @@ const ItemListContainer = (props) => {
             <h2> {props.greeting} </h2> 
             <ItemCount stock= {5} initial ={1} onAdd = {onAdd}/>
             <ToastContainer/>  
-            <ItemList listado = {lista}/>
+           <ItemList listado = {lista}/>
         </>
     )
 }
