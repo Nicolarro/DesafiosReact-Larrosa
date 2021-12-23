@@ -6,14 +6,16 @@ import { useEffect } from 'react'; */
 
 
  
-    const Item = ({listado}) => {
+    const Item = ({price,title}) => {
 
-
+            console.log(price)
     
         return (
                 <>
+                <br />
                 <ul>
-                    <h3>{listado.name}</h3>
+                    <h2>{title}</h2>
+                    <h3> {price}</h3>
                 </ul>
                 </>
 

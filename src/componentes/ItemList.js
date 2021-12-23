@@ -8,12 +8,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ItemList = ({listado}) =>{
 
+console.log(listado)
+
 return(
 
         <ul>
                 {listado.map((producto)=>(
 
-        <Item key={producto.id} precio= {producto.price} /> 
+        <Item key={producto.id} price= {producto.price} title = {producto.title} /> 
        
                 ))}
         </ul>   
