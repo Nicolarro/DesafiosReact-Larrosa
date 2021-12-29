@@ -15,11 +15,10 @@ return(
         <ul>
                 {listado.map((producto)=>(
 
-        <Item key={producto.id} price= {producto.price} title = {producto.title} /> 
+        <Item key={producto.id} price= {producto.price} title = {producto.title} id= {producto.id}/> 
        
                 ))}
         </ul>   
-
 )
 }
 

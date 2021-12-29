@@ -10,13 +10,13 @@ $color2:#6b705c;
 $color3:#d5d5d5;
 
 /* DEL HEADER */
-.header{
+#main-header{
     background-color: #CCD5AE;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0rem;
-    .header__logo {
+    img {
       border-style: none;
       flex-grow: 0;
       margin-left: 1rem;
@@ -24,9 +24,9 @@ $color3:#d5d5d5;
     }
   }
 
-  
 .header--color{
     background-color:  #CCD5AE;
+    text-decoration: none;
         }
 
 .estiloCarrito{
@@ -35,3 +35,5 @@ $color3:#d5d5d5;
     font-size: xx-large ;
     align-self: flex-end;
 }
+
+

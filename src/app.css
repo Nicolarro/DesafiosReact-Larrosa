@@ -4,7 +4,7 @@ body {
 
 /* OPERADORES */
 /* DEL HEADER */
-.header {
+#main-header {
   background-color: #CCD5AE;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,7 +18,7 @@ body {
   margin: 0rem;
 }
 
-.header .header__logo {
+#main-header img {
   border-style: none;
   -webkit-box-flex: 0;
       -ms-flex-positive: 0;
@@ -29,6 +29,7 @@ body {
 
 .header--color {
   background-color: #CCD5AE;
+  text-decoration: none;
 }
 
 .estiloCarrito {

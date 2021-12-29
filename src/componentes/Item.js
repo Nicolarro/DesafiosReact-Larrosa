@@ -1,21 +1,23 @@
 import React from "react"
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-/* import { useState } from 'react';
-import { useEffect } from 'react'; */
+import {Link} from "react-router-dom";
 
 
  
-    const Item = ({price,title}) => {
+    const Item = ({price,title,id}) => {
 
             console.log(price)
     
         return (
                 <>
-                <br />
+                <br/>
                 <ul>
-                    <h2>{title}</h2>
-                    <h3> {price}</h3>
+                    <h1>{title}</h1>
+                    <h2> Precio:{price}</h2>
+                    <Link to= {`/item/${id}`}>
+                    <button> Detalle </button>
+                    </Link>
                 </ul>
                 </>
 

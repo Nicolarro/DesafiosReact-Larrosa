@@ -1,6 +1,6 @@
  import React from "react";
- import CardWidget from "./CardWidget.js"
-/*  import {Link,NavLink} from "react-router-dom" */
+ import CardWidget from "./CardWidget.js";
+ import {Link,NavLink} from "react-router-dom";
  import 'bootstrap/dist/css/bootstrap.min.css'
 
  
@@ -9,12 +9,19 @@
 return(
 
   <header id="main-header" className="header">
-    <div>
-    <a className="navbar-brand" href="index.html">
+
+    <NavLink to="/">
+
       <img src="https://i.ibb.co/1RDMJgg/Logo-Index.jpg" width="70" height="70" alt="" className="header--color header__logo img-fluid"/>
-    </a>
-    </div>
-      <nav className="navbar navbar-expand-lg navbar-light header--color">
+    </NavLink>
+
+    <nav>
+    {links.map((elemento)=>
+    {return <NavLink key={elemento.id} to ={elemento.href} className = "header--color"> {elemento.name}</NavLink>}
+    )}
+  
+  {/*     <nav className="navbar navbar-expand-lg navbar-light header--color"> */}
+{/*   <NavLink to="/carrito"></NavLink>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -40,16 +47,18 @@ return(
         </li>
         <li className="nav-item">
           <a className="nav-link header--color" href= "a" >CARRITO</a>
-        </li>
+        </li> */}
+        <NavLink to= "/carrito">
         <CardWidget/>
-    </ul>
+        </NavLink>
+{/*     </ul>
+      
       <form className="d-flex">
           
-      </form>
+      </form> */}
+        </nav>
 
-  </div>
-  </nav>
-  </header>
+      </header>
 )
 }
 

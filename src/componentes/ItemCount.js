@@ -5,17 +5,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-/*    const [estado,setEstado] = useState(0)
-    console.log(estado) */
-    
 
 const ItemCount = ({stock, initial, onAdd}) =>{
 
     let [contador, setContador] = useState(initial) 
-
-/*     let [lista, setLista] = useState([]) // AGREGAR DESPUES
-
-    let [estado,setEstado] = useState(false) */ //AGREGAR DESPUES
 
     
         const sumar = () =>{
@@ -26,10 +19,6 @@ const ItemCount = ({stock, initial, onAdd}) =>{
             {
                 setContador(contador +1 )
                 console.log(contador)
-
-/*                 setEstado(!estado) */ //AGREGAR DESPUES
-
-  /*               setLista(lista.map) */// AGREGAR DESPUES
             }
         }
     

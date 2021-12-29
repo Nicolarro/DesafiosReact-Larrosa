@@ -7,18 +7,17 @@ import ItemList from "./ItemList.js"
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+export const listadoProductos = [
+    {id:1, title: "seleccion" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "https://i.ibb.co/Qf0MtJc/Foto-Cafe-Seleccion.jpg" },
+    {id:2, title: "superior" ,   description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "https://i.ibb.co/GP7C8dr/Foto-Superior.jpg" },
+    {id:3, title: "intenso" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "https://i.ibb.co/nPN102r/Foto-Cafe-Intenso.png" },
+    {id:4, title: "suave" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "https://i.ibb.co/1nPjVMH/Foto-Sensaciones-Suave.png"},
+    {id:5, title: "noir" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "https://i.ibb.co/Hh8wZFD/Foto-Cafe-Noir.jpg"}
+]
 
 
 const ItemListContainer = (props) => {
 
-
-    const listadoProductos = [
-        {id:1, title: "espresso" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "" },
-        {id:2, title: "latte" ,   description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "" },
-        {id:3, title: "machiatto" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: "" },
-        {id:4, title: "tradicional" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: ""},
-        {id:5, title: "capuccino" ,description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.", price: 150, pictureUrl: ""}
-    ]
 
     const onAdd = (contador,stock) => {
         if (stock === 0 || contador > stock) {
@@ -52,7 +51,7 @@ const ItemListContainer = (props) => {
 
         console.log(lista)
 
-
+    if (lista.length > 0){
     return (
         <>
             <h2> {props.greeting} </h2> 
@@ -61,6 +60,12 @@ const ItemListContainer = (props) => {
             <ItemList listado = {lista}/>
         </>
     )
+    }
+    else{
+        return(
+            <h1>Cargando</h1>
+        )
+    }
 }
 
 export default ItemListContainer;
