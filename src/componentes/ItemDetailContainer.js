@@ -9,19 +9,14 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 const ItemDetailContainer = ({listado}) =>{
 
+   const producto = listadoProductos
    
     const {id} = useParams();
 
-    const producto = listadoProductos.find(e => e.id === id)
 
-    console.log(producto)
+    const [prod,setProducto] = useState([]);
 
-    const [item,setItem] = useState([]);
-
-/*     const getItem = () =>{
-
-    } */
-
+    
         useEffect(()=>{
             setTimeout(() => {
                 
@@ -31,21 +26,22 @@ const ItemDetailContainer = ({listado}) =>{
                 },2000);
                 });
                 promise
-                .then((producto) => { setItem(producto)})
+                .then((producto) => { 
+                    let filterProduct = producto.filter((prod)=> producto.id === parseInt(id))
+                    console.log(filterProduct)
+                    setProducto(filterProduct);})
                 .catch((error)=>{
                     console.log(error)
                 });
-        },2000);
+        },[id]);
         },)
 
         
     return(
-        <ItemDetail unidad= {item} producto={producto}/>
+        <ItemDetail unidad= {producto}/>
 
     )
 
 }
-
-
 
 export default ItemDetailContainer;

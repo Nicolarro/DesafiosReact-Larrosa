@@ -19,17 +19,6 @@ export const listadoProductos = [
 const ItemListContainer = (props) => {
 
 
-    const onAdd = (contador,stock) => {
-        if (stock === 0 || contador > stock) {
-        toast("No hay stock suficiente")
-        }
-        else
-        {
-        toast( {contador} + " Productos agregados al carrito")
-        }
-        }
-
-
         const [lista,setLista] = useState([listadoProductos]);
 
        useEffect(()=>{
@@ -55,7 +44,7 @@ const ItemListContainer = (props) => {
     return (
         <>
             <h2> {props.greeting} </h2> 
-            <ItemCount stock= {5} initial ={1} onAdd = {onAdd}/>
+
             <ToastContainer/>  
             <ItemList listado = {lista}/>
         </>

@@ -19,9 +19,22 @@ return(
     {links.map((elemento)=>
     {return <NavLink key={elemento.id} to ={elemento.href} className = "header--color"> {elemento.name}</NavLink>}
     )}
+
+        <NavLink to= "/carrito">
+        <CardWidget/>
+        </NavLink>
   
-  {/*     <nav className="navbar navbar-expand-lg navbar-light header--color"> */}
-{/*   <NavLink to="/carrito"></NavLink>
+        </nav>
+        
+      </header>
+
+)
+}
+
+export default Navbar;
+
+  /*     <nav className="navbar navbar-expand-lg navbar-light header--color"> */
+/*   <NavLink to="/carrito"></NavLink>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -47,22 +60,16 @@ return(
         </li>
         <li className="nav-item">
           <a className="nav-link header--color" href= "a" >CARRITO</a>
-        </li> */}
-        <NavLink to= "/carrito">
-        <CardWidget/>
-        </NavLink>
-{/*     </ul>
+        </li> */
+
+/*     </ul>
       
       <form className="d-flex">
           
-      </form> */}
-        </nav>
+      </form> */
+ 
 
-      </header>
-)
-}
 
-export default Navbar;
 
 
 

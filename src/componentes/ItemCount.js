@@ -6,9 +6,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
-const ItemCount = ({stock, initial, onAdd}) =>{
+const ItemCount = ({stock, initial,onAdd}) =>{
 
-    let [contador, setContador] = useState(initial) 
+    let [contador, setContador] = useState(initial)
+
+    const [lista, setLista] = useState([]);
+
+    const alerta = () =>{
+        toast("Producto agregado al carrito")
+    }
 
     
         const sumar = () =>{
@@ -19,6 +25,7 @@ const ItemCount = ({stock, initial, onAdd}) =>{
             {
                 setContador(contador +1 )
                 console.log(contador)
+                setLista();
             }
         }
     
@@ -33,13 +40,15 @@ const ItemCount = ({stock, initial, onAdd}) =>{
         
         const resetear = () => {
             setContador(1)
-/*             setLista() */ //AGREGAR DESPUES
+            setLista()
         }
 
         const agregarProducto = () => {
             console.log(contador)
             onAdd(contador,stock)
             setContador(initial)
+            alerta()
+
         }
 
     return (
