@@ -38,8 +38,9 @@ const ItemDetailContainer = ({listado}) =>{
 
         
     return(
+        <>
         <ItemDetail unidad= {producto}/>
-
+        </>
     )
 
 }

@@ -1,7 +1,7 @@
  import { useState } from "react";
 import React from "react";
 import ItemCount from "./ItemCount"
-import {producto} from "./ItemDetailContainer"
+import {unidad} from "./ItemDetailContainer"
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { NavLink } from "react-router-dom";
@@ -31,10 +31,10 @@ const ItemDetail = ({unidad,producto}) =>{
         
         {unidad.map((prod)=>{
 
-        return <> <h2>Nombre: {unidad.title}</h2>
-        <img src={unidad.pictureUrl} alt={unidad.title} ></img>
+        return <> <h2>Nombre: {prod.title}</h2>
+        <img src={prod.pictureUrl} alt={prod.title} ></img>
 
-        <span>Descripcion:{unidad.description}</span>
+        <span>Descripcion:{prod.description}</span>
         <ItemCount stock= {5} initial ={1} onAdd = {onAdd}/>
         <NavLink to="/carrito">
             <button>Finalizar compra</button>
@@ -52,10 +52,10 @@ else{
 
         {unidad.map((prod)=>{
 
-        return <div><h2>Nombre: {unidad.title}</h2>
-        <img src={unidad.pictureUrl} alt={unidad.title} ></img>
+        return <div><h2>Nombre: {prod.title}</h2>
+        <img src={prod.pictureUrl} alt={prod.title} ></img>
 
-        <span>Descripcion:{unidad.description}</span>
+        <span>Descripcion:{prod.description}</span>
 
         <NavLink to="/carrito"> <button>Finalizar Compra</button></NavLink>
       
