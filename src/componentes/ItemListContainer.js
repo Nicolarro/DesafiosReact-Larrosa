@@ -1,7 +1,6 @@
 import { useState,useEffect } from "react";
 import React from "react";
 import { ToastContainer, toast } from 'react-toastify';
-import ItemCount from "./ItemCount.js"
 import ItemList from "./ItemList.js"
 /* import { useParams } from "react-router-dom"; */
 import 'react-toastify/dist/ReactToastify.css';
