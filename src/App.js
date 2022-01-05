@@ -23,6 +23,7 @@ function App () {
  
   <BrowserRouter>
             <Navbar links = {links} stock = {0} initial = {10}/>
+            <main>
           <Routes> 
             <Route path= "/" element={<ItemListContainer greeting={"Bienvenido!"} />}/> 
             <Route path = "/carrito" element = {<Carrito/>}/>
@@ -30,8 +31,8 @@ function App () {
             <Route path= "/categoria/:id" element = {<ItemListContainer greeting={"Bienvenido!"}/>}/>
             <Route path= "/item/:id" element ={ <ItemDetailContainer />}/>
          </Routes> 
-
-         <Footer/>
+         </main>
+         <Footer />
 </BrowserRouter> 
 
 )
