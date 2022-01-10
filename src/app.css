@@ -41,4 +41,8 @@ body {
   -ms-flex-item-align: end;
       align-self: flex-end;
 }
+
+p {
+  font-size: 1.5rem;
+}
 /*# sourceMappingURL=app.css.map */

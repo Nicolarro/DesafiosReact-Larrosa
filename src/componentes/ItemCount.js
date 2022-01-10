@@ -53,7 +53,7 @@ const ItemCount = ({stock, initial,onAdd}) =>{
 
     return (
         <>   
-            <p>Contador Actual:{contador}</p>
+            <p>CANTIDAD:{contador}</p>
             <button onClick={sumar}> SUMAR</button>
             <ToastContainer />
             <button onClick={restar}> RESTAR</button>

@@ -1,19 +1,19 @@
-import React from "react"
+import React, { createContext } from "react"
 import 'react-toastify/dist/ReactToastify.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
 
 
- 
-    const Item = ({price,title,id}) => {
+    const Item = ({price,title,id,pictureUrl}) => {
 
-            console.log(price)
-    
+   
+    console.log(pictureUrl)
         return (
                 <>
                 <br/>
                 <ul>
-                    <h1>{title}</h1>
+                    <img src={pictureUrl} alt="thumbnail"/>
+                    <h1>Producto:{title}</h1>
                     <h2> Precio:{price}</h2>
                     <Link to= {`/item/${id}`}>
                     <button> Detalle </button>

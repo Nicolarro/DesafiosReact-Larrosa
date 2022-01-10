@@ -1,70 +1,41 @@
- import { useState } from "react";
-import React from "react";
-import ItemCount from "./ItemCount"
-import {unidad} from "./ItemDetailContainer"
-import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Link } from "react-router-dom";
+import ItemCount from "./ItemCount";
+import { useContexto, Provider } from "../miContexto";
 
+export const ItemDetail = (props) => {
+  const [estado, setEstado] = useState(true);
 
+  useContexto();
 
-const ItemDetail = ({unidad,producto}) =>{
+  function onAdd(stock) {
+    console.log("Agregado al carrito");
+    setEstado(false);
+    /*         agregaralCarrito(cantidad,producto */ //agregar en el desafio de contexto
+  }
 
+  const [item, setItem] = useState([]);
 
-    const [estado, setEstado] =useState(true)
+  useEffect(() => {
+    setItem(props.unidad);
+  }, [props]);
 
-
-    function onAdd (cantidad) {
-        console.log("Agregado al carrito");
-        setEstado(false)
-        
-    }
-
-    console.log(unidad)
-
-    if (estado===true){
-   
-    return (      
-        <div>
-            <h2>PRODUCTO</h2>
-       
-        
-        {unidad.map((prod)=>{
-
-        return <> <h2>Nombre: {prod.title}</h2>
-        <img src={prod.pictureUrl} alt={prod.title} ></img>
-
-        <span>Descripcion:{prod.description}</span>
-        <ItemCount stock= {5} initial ={1} onAdd = {onAdd}/>
-        <NavLink to="/carrito">
-            <button>Finalizar compra</button>
-        </NavLink>
-        </>
-        })}
-    </div>
-
-    )
-}
-else{
-    return(
+  return (
     <div>
-        <h2>PRODUCTO</h2>
-
-        {unidad.map((prod)=>{
-
-        return <div><h2>Nombre: {prod.title}</h2>
-        <img src={prod.pictureUrl} alt={prod.title} ></img>
-
-        <span>Descripcion:{prod.description}</span>
-
-        <NavLink to="/carrito"> <button>Finalizar Compra</button></NavLink>
-      
+      <img alt="logo" src={item.pictureUrl} />
+      <h3>Nombre: {item.title}</h3>
+      <h3>Descripción: {item.description}</h3>
+      <h3>Precio: ${item.price}</h3>
+      <br />
+      <br />
+      <ItemCount stock={5} initial={1} onAdd={onAdd} />
     </div>
-            })}
-    </div>
-        )
-
-}
-}
-
+  );
+};
 export default ItemDetail;
+
+/* esta data tambien hay que pasarsela al carrito, y al componente de cardwiget, 
+esto hay que hacerlo con context 
+ */

@@ -1,48 +1,41 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
- import React from "react";
- import ItemDetail from "react"
- import {listadoProductos} from "./ItemListContainer"
-import 'react-toastify/dist/ReactToastify.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React from "react";
+import ItemDetail from "./ItemDetail";
+import { listadoProductos } from "./ItemListContainer";
+import "react-toastify/dist/ReactToastify.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+const producto = listadoProductos;
 
-const ItemDetailContainer = ({listado}) =>{
+const ItemDetailContainer = () => {
+  const { id } = useParams();
 
-   const producto = listadoProductos
-   
-    const {id} = useParams();
+  if (id) {
+    console.log("Productos por categoria");
+  } else {
+    console.log("Todos los productos");
+  }
 
+  const [product, setProducto] = useState([]);
 
-    const [prod,setProducto] = useState([]);
+  useEffect(() => {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        // eslint-disable-next-line eqeqeq
+        resolve(producto.find((e) => e.id == id));
+      }, 2000);
+    });
+    promise.then((producto) => {
+      console.log(producto);
+      setProducto(producto);
+    });
+  }, []);
 
-    
-        useEffect(()=>{
-            setTimeout(() => {
-                
-                const promise = new Promise ((resolve,reject) =>{
-                    setTimeout(() => {
-                        resolve(producto);
-                },2000);
-                });
-                promise
-                .then((producto) => { 
-                    let filterProduct = producto.filter((prod)=> producto.id === parseInt(id))
-                    console.log(filterProduct)
-                    setProducto(filterProduct);})
-                .catch((error)=>{
-                    console.log(error)
-                });
-        },[id]);
-        },)
-
-        
-    return(
-        <>
-        <ItemDetail unidad= {producto}/>
-        </>
-    )
-
-}
-
+  return (
+    <>
+      <ItemDetail unidad={product} />
+    </>
+  );
+};
 export default ItemDetailContainer;
