@@ -6,14 +6,17 @@ import ItemCount from "./ItemCount";
 import { useContexto, Provider } from "../miContexto";
 
 export const ItemDetail = (props) => {
+
   const [estado, setEstado] = useState(true);
 
-  useContexto();
+  const {agregarAlCarrito} = useContexto();
+
+  console.log(agregarAlCarrito)
 
   function onAdd(stock) {
     console.log("Agregado al carrito");
     setEstado(false);
-    /*         agregaralCarrito(cantidad,producto */ //agregar en el desafio de contexto
+/*     agregarAlCarrito(cantidad,unidad) */
   }
 
   const [item, setItem] = useState([]);

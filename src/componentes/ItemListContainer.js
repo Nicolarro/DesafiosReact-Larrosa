@@ -60,6 +60,8 @@ const ItemListContainer = (props) => {
   console.log("se ejecuto de nuevo");
 
   const [lista, setLista] = useState([listadoProductos]);
+  const [loading, setLoading] = useState(false)
+
 
   useEffect(() => {
     setTimeout(() => {
@@ -81,7 +83,8 @@ const ItemListContainer = (props) => {
   console.log(lista);
 
 
-  if (lista.length > 0) {
+/*   if (lista.length > 0) {
+
     return (
       <>
         <h2> {props.greeting} </h2>
@@ -94,7 +97,27 @@ const ItemListContainer = (props) => {
 
     return <h1>Cargando</h1>;
     
-  }
-};
+  } */
+
+  if (loading & (lista.length) > 0) {
+    return (
+
+        <h3>Cargando...</h3>
+    
+        )
+} else {
+    return (
+      <>
+      <h2> {props.greeting} </h2>
+
+      <ToastContainer />
+      <ItemList listado={lista} />
+    </>
+
+    )
+}
+}
+
+
 
 export default ItemListContainer;
