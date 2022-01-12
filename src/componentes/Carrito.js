@@ -4,7 +4,7 @@ import { useContexto } from "../miContexto";
 
 const Carrito = () => {
 
-const {carrito, borrarDelCarrito, limpiarCarrito} = useContexto()
+const {carrito, borrarDelCarrito, limpiarCarrito, isInCarrito} = useContexto()
 
 console.log(carrito)
 

@@ -6,12 +6,10 @@ const contexto = createContext({ cantidad: 5, carrito: [] });
 export const { Provider } = contexto;
 
 export const useContexto = () => {
-
   return useContext(contexto);
 };
 
-const CustomProvider = ({children}) => {
-
+const CustomProvider = ({ children }) => {
   const [precio_total, setPrecioTotal] = useState(0);
 
   const [cantidad, setCantidad] = useState(0); // numero que va en el widget
@@ -20,8 +18,8 @@ const CustomProvider = ({children}) => {
   /* aparte debo tener una funcion que ejecute desde el item detail. Me va a actualiza las funciones que tenga aca, y estas actualizar los compententes  que le haya paasado el contexto */
 
   const agregarAlCarrito = (cantidad, producto) => {
-    console.log("Soy el Provider")
-    console.log(cantidad,producto)
+    console.log("Soy el Provider");
+    console.log(cantidad, producto);
     if (isInCarrito()) {
     } else {
     }
@@ -35,10 +33,13 @@ const CustomProvider = ({children}) => {
   /* item detail tiene que tener este contexto, tengo que consumir el contexto ahi */
 
   const borrarDelCarrito = (id) => {
-    /* se pide que les pasen un id, busque en el array, encuentre por id y se lo saque */
-    //const nuevo_carrito = ?
+    /* se pide que les pasen un id, busque en el array, encuentre por id y se lo saque, hacer algun filter o algo */
+    const nuevo_carrito = carrito.filter(id);
+
     //setCarrito(estadoArray.filter())
     //setCarrito(estadoArray.map())
+
+    setCarrito(nuevo_carrito);
   };
 
   const limpiarCarrito = () => {
@@ -46,7 +47,6 @@ const CustomProvider = ({children}) => {
   };
 
   const isInCarrito = (id) => {
-
     return carrito.find((producto) => producto.id === id);
     /* significa que si agregue un producto al carrito, 
 y luego voy al producto y quiero agregar el mismo, 
@@ -54,7 +54,14 @@ solo se pushea la cantidad, no el mismo articulo,
 a menos que sea otro diferente */
 
     //return true ? false
-  };
+
+
+
+/*    DEL CHAT const isInCart = (id) => {
+      return cart.find(element => element.id === id); */
+  }
+
+  
 
   const valorDelContexto = {
     cantidad,
