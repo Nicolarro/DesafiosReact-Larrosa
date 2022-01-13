@@ -11,6 +11,7 @@ export const listadoProductos = [
     id: 1,
     title: "seleccion",
     category: "Standard",
+    stock: 20,
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.",
     price: 400,
@@ -20,6 +21,7 @@ export const listadoProductos = [
     id: 2,
     title: "superior",
     category: "Premium",
+    stock: 15,
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.",
     price: 300,
@@ -29,6 +31,7 @@ export const listadoProductos = [
     id: 3,
     title: "intenso",
     category: "Premium",
+    stock: 20,
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.",
     price: 350,
@@ -38,6 +41,7 @@ export const listadoProductos = [
     id: 4,
     title: "suave",
     category: "Standard",
+    stock: 15,
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.",
     price: 300,
@@ -47,6 +51,7 @@ export const listadoProductos = [
     id: 5,
     title: "noir",
     category: "Standard",
+    stock: 20,
     description:
       "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam qui eaque beatae necessitatibus vitae quo placeat ad consectetur aut veniam provident minus aliquid magnam fugiat error dolor quaerat, nihil quia.",
     price: 500,
@@ -83,21 +88,6 @@ const ItemListContainer = (props) => {
   console.log(lista);
 
 
-/*   if (lista.length > 0) {
-
-    return (
-      <>
-        <h2> {props.greeting} </h2>
-
-        <ToastContainer />
-        <ItemList listado={lista} />
-      </>
-    );
-  } else {
-
-    return <h1>Cargando</h1>;
-    
-  } */
 
   if (loading & (lista.length) > 0) {
     return (
