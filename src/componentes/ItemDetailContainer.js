@@ -9,6 +9,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const producto = listadoProductos;
 
 const ItemDetailContainer = () => {
+
   const { id } = useParams();
 
   if (id) {
@@ -22,12 +23,11 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        // eslint-disable-next-line eqeqeq
-        resolve(producto.find((e) => e.id == id));
+        resolve(producto.find((e) => e.id === id));
       }, 2000);
     });
     promise.then((producto) => {
-      console.log(producto);
+
       setProducto(producto);
     });
   }, []);

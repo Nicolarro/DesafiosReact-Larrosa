@@ -1,10 +1,13 @@
 import { useState, useEffect } from "react";
 import React from "react";
-import { ToastContainer, toast } from "react-toastify";
 import ItemList from "./ItemList.js";
 import { useParams } from "react-router-dom";
+import {db} from '../firebase'
+import {getDocs, query} from "firebase/firestore"
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+
+console.log(db)
 
 export const listadoProductos = [
   {
@@ -60,6 +63,7 @@ export const listadoProductos = [
 ];
 
 const ItemListContainer = (props) => {
+
   const { category } = useParams();
 
   console.log("se ejecuto de nuevo");
@@ -69,6 +73,7 @@ const ItemListContainer = (props) => {
 
 
   useEffect(() => {
+
     setTimeout(() => {
       const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -76,8 +81,14 @@ const ItemListContainer = (props) => {
         }, 2000);
       });
       promise
-        .then((productos) => {
-          setLista(productos);
+        .then((listadoProductos) => {
+          if(category){
+            const filtro = listadoProductos.filter((item) => item.category === category)
+            console.log(filtro)
+           setLista(filtro)}
+          else{
+             setLista(listadoProductos)
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -85,28 +96,18 @@ const ItemListContainer = (props) => {
     }, 2000);
   }, [category]);
 
-  console.log(lista);
 
-
-
-  if (loading & (lista.length) > 0) {
-    return (
-
-        <h3>Cargando...</h3>
+    return(
+    <>
+    {loading ? <h2> Cargando... </h2>: <ItemList listado={lista} /> }
     
-        )
-} else {
-    return (
-      <>
-      <h2> {props.greeting} </h2>
-
-      <ToastContainer />
-      <ItemList listado={lista} />
     </>
 
     )
-}
-}
+
+  }
+
+
 
 
 

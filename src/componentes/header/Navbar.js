@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Navbar = ({ links }) => {
+  
   return (
     <header id="main-header" className="header">
       <NavLink to="/">

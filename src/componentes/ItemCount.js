@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
+
   let [contador, setContador] = useState(initial);
 
   const [lista, setLista] = useState([]);

@@ -6,24 +6,30 @@ const contexto = createContext({ cantidad: 5, carrito: [] });
 export const { Provider } = contexto;
 
 export const useContexto = () => {
-  return useContext(contexto);
+  return useContext(contexto)
 };
 
 const CustomProvider = ({ children }) => {
-  const [precio_total, setPrecioTotal] = useState(0);
 
+  const [precio_total, setPrecioTotal] = useState(0);
   const [cantidad, setCantidad] = useState(0); // numero que va en el widget
-  const [carrito, setCarrito] = useState([]); // array para el la vista del carrito
+  const [carrito, setCarrito] = useState([]); // array para  la vista del carrito
 
   /* aparte debo tener una funcion que ejecute desde el item detail. Me va a actualiza las funciones que tenga aca, y estas actualizar los compententes  que le haya paasado el contexto */
 
   const agregarAlCarrito = (cantidad, producto) => {
     console.log("Soy el Provider");
     console.log(cantidad, producto);
-    if (isInCarrito()) {
-    } else {
-    }
-  };
+
+ /*    if(isInCart){
+    const copia_carrito = [...carrito]
+ */
+
+  }
+
+/*     const idBusqueda = copia_carrito.findIndex((p)=> p.id === id) */
+
+  ;
 
   console.log("Soy el provider"); // todo lo que modifique el carrito teine que estar dentro de la funcion agregarAlCarrito
   /* 
@@ -47,7 +53,7 @@ const CustomProvider = ({ children }) => {
   };
 
   const isInCarrito = (id) => {
-    return carrito.find((producto) => producto.id === id);
+    return carrito.find((producto) => producto.id === id);}
     /* significa que si agregue un producto al carrito, 
 y luego voy al producto y quiero agregar el mismo, 
 solo se pushea la cantidad, no el mismo articulo, 
@@ -59,7 +65,7 @@ a menos que sea otro diferente */
 
 /*    DEL CHAT const isInCart = (id) => {
       return cart.find(element => element.id === id); */
-  }
+  
 
   
 
@@ -71,7 +77,7 @@ a menos que sea otro diferente */
     limpiarCarrito,
   };
 
-  return <Provider value={valorDelContexto}>{children}</Provider>;
-};
+  return( <Provider value={valorDelContexto}>{children}</Provider>)
+  }
 
 export default CustomProvider;
