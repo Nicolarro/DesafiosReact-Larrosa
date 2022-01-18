@@ -4,14 +4,18 @@ import { useContexto } from "../miContexto";
 
 const Carrito = () => {
 
-const {carrito, borrarDelCarrito, limpiarCarrito, isInCarrito} = useContexto()
+const {borrarDelCarrito, limpiarCarrito, isInCarrito} = useContexto()
+
+const carrito = useContexto()
 
 console.log(carrito)
 
 
 return(
 
-
+/* {carrito.map((dd)=>(
+    
+) )} */
 <h3> Carrito </h3>
 
 )

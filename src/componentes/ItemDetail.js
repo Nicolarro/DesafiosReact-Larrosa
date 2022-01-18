@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-import { listado } from "./ItemListContainer";
 import ItemCount from "./ItemCount";
 import { useContexto, Provider } from "../miContexto";
 

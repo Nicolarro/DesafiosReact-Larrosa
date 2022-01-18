@@ -21,13 +21,19 @@ const CustomProvider = ({ children }) => {
     console.log("Soy el Provider");
     console.log(cantidad, producto);
 
- /*    if(isInCart){
+    if(isInCarrito(producto)){
     const copia_carrito = [...carrito]
- */
-
+    const findById = copia_carrito.findIndex((p)=> p.item.id === producto.id)
+    if(findById===-1){
+      setCarrito(copia_carrito)}
+      else{
+        const nuevaCantidad = carrito[findById].cantidad + cantidad
+        setCarrito(nuevaCantidad)
+      }
+    }
   }
 
-/*     const idBusqueda = copia_carrito.findIndex((p)=> p.id === id) */
+  
 
   ;
 
@@ -38,14 +44,12 @@ const CustomProvider = ({ children }) => {
 
   /* item detail tiene que tener este contexto, tengo que consumir el contexto ahi */
 
-  const borrarDelCarrito = (id) => {
+  const borrarDelCarrito = (item,cantidad) => {
     /* se pide que les pasen un id, busque en el array, encuentre por id y se lo saque, hacer algun filter o algo */
-    const nuevo_carrito = carrito.filter(id);
+    const nuevo_carrito = carrito.filter(e =>e.item.id !== item.id)
+    setCarrito(nuevo_carrito)
+    setCarrito(cantidad)
 
-    //setCarrito(estadoArray.filter())
-    //setCarrito(estadoArray.map())
-
-    setCarrito(nuevo_carrito);
   };
 
   const limpiarCarrito = () => {
@@ -61,10 +65,6 @@ a menos que sea otro diferente */
 
     //return true ? false
 
-
-
-/*    DEL CHAT const isInCart = (id) => {
-      return cart.find(element => element.id === id); */
   
 
   
