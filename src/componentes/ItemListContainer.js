@@ -3,12 +3,17 @@ import React from "react";
 import ItemList from "./ItemList.js";
 import { useParams } from "react-router-dom";
 import {db} from '../firebase'
-import {getDocs, query} from "firebase/firestore"
+import {getDocs, query,collection,where} from "firebase/firestore"
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 console.log(db)
 
+/* const query1 = query() */
+
+
+/* console.log(query1)
+ */
 export const listadoProductos = [
   {
     id: 1,
@@ -64,7 +69,9 @@ export const listadoProductos = [
 
 const ItemListContainer = (props) => {
 
-  const { category } = useParams();
+  /* const { category } = useParams(); */
+
+  const { nombre } = useParams()
 
   console.log("se ejecuto de nuevo");
 
@@ -74,7 +81,60 @@ const ItemListContainer = (props) => {
 
   useEffect(() => {
 
-    setTimeout(() => {
+    const prodCollection = collection(db,"producto")
+
+    console.log(prodCollection)
+
+    if (nombre) {
+
+      const consulta = query(prodCollection,where("category","==",nombre),where("price",">",100))
+      getDocs(consulta)
+      .then (({docs}) => {
+        setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+      })
+      .catch ((error) => {
+        console.log(error)
+      })
+
+    }
+  
+    else{
+
+      getDocs(prodCollection )
+
+      .then (({docs} ) =>{
+  
+        /* const docs = resultado.docs */
+  
+        /* const lista= docs.map((doc)=> { */
+  
+          setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+  
+        
+        })
+      
+    .catch((error)=>{
+      console.log("error")
+    })
+  
+    }
+  },[nombre])
+
+    return (
+
+      <>
+      {loading ? <h2> Cargando... </h2>: <ItemList listado={lista} /> }
+  
+      </>
+  
+      )
+    }
+  
+  
+
+    export default ItemListContainer;
+
+/*     setTimeout(() => {
       const promise = new Promise((resolve, reject) => {
         setTimeout(() => {
           resolve(listadoProductos);
@@ -94,21 +154,9 @@ const ItemListContainer = (props) => {
           console.log(error);
         });
     }, 2000);
-  }, [category]);
-
-
-    return(
-    <>
-    {loading ? <h2> Cargando... </h2>: <ItemList listado={lista} /> }
-    
-    </>
-
-    )
-
-  }
+  }, [category]); */
 
 
 
 
 
-export default ItemListContainer;

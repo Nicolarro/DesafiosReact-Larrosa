@@ -6,8 +6,8 @@ import ItemCount from "./ItemCount";
 import { useContexto, Provider } from "../miContexto";
 
 export const ItemDetail = (props) => {
-  
   const [estado, setEstado] = useState(true);
+  const [item, setItem] = useState([]);
 
   const { agregarAlCarrito } = useContexto();
 
@@ -19,13 +19,14 @@ export const ItemDetail = (props) => {
     agregarAlCarrito(cantidad, producto);
   }
 
-  const [item, setItem] = useState([]);
-
   useEffect(() => {
     setItem(props.unidad);
-  }, [props]);
+  }, [props])
+
+  console.log(item.pictureUrl)
 
   return (
+    
     <div>
       <img alt="logo" src={item.pictureUrl} />
       <h3>Nombre: {item.title}</h3>
@@ -35,8 +36,8 @@ export const ItemDetail = (props) => {
       <br />
       <ItemCount stock={5} initial={1} onAdd={onAdd} />
     </div>
-  );
-};
+  )
+}
 
 export default ItemDetail;
 
